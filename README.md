@@ -21,6 +21,7 @@ localstack status services
 
 # Run the lambda + apigateway example
 ```sh
+(cd lambda && zip ../lambda.zip index.js)
 tflocal apply -auto-approve
 curl http://localhost:4566/restapis/$(awslocal apigateway get-rest-apis --query 'items[0].id' --output text)/dev/_user_request_/hello
 ```
